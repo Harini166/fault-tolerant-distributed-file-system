@@ -1,5 +1,9 @@
 *.class
 
+# Ignore all intellij related files
+.idea/
+*.iml
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
