@@ -7,12 +7,28 @@ import wireformats.Protocol;
 import java.net.Socket;
 
 /**
- * Created by Prady on 3/2/16.
+ * Class for Controller
  */
-public class Controller implements Node, Protocol {
-    @Override
-    public void handleEvent(Event e, Socket s) {
 
+public class Controller implements Node, Protocol {
+
+    @Override
+    public void handleEvent(Event event, Socket socket) {
+        int type = event.getType();
+        switch(type){
+            case CHUNK_SERVER_SENDS_REGISTRATION: registerChunkServer(event, socket);
+                break;
+        }
+
+    }
+
+    /**
+     * Method to handle registration request from chunk server
+     * @param event : ChunkServerSendsRegistration object
+     * @param socket : Socket at which event arrived
+     */
+    public void registerChunkServer(Event event, Socket socket){
+        System.out.println("Registration request from "+event.toString());
     }
 
     public static void main (String [] args) {

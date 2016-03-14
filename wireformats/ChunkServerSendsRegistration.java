@@ -72,4 +72,8 @@ public class ChunkServerSendsRegistration implements Event, Protocol{
 	public int getPortNumber() {
 		return portNumber;
 	}
+
+	public String toString(){
+        return getIpAddress()+" "+getPortNumber();
+    }
 }
